@@ -60,5 +60,9 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
+    // handle navigation
     implementation "androidx.navigation:navigation-compose:$nav_version"
+    // handle image loading
+    implementation "io.coil-kt:coil-compose:2.2.2"
+
 }
