@@ -1,5 +1,11 @@
 package com.hackinroms.movieapp.models
 
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
+import coil.compose.AsyncImagePainter
+import coil.compose.rememberAsyncImagePainter
+import coil.request.ImageRequest
+
 data class Movie(
   val id: String,
   val title: String,
@@ -151,4 +157,19 @@ fun getMovies(): List<Movie> {
       rating = "9.5"),
 
     )
+}
+
+// Get movie by movie id
+fun getMovie(id: String): Movie? {
+  return getMovies().find { it.id == id }
+}
+
+@Composable
+fun getImagePainter(url: String): AsyncImagePainter {
+  return rememberAsyncImagePainter(
+    model = ImageRequest.Builder(LocalContext.current)
+      .data(url)
+      .crossfade(true)
+      .build(),
+  )
 }
