@@ -8,7 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.hackinroms.movieapp.screens.home.HomeScreen
 import com.hackinroms.movieapp.screens.details.DetailScreen
-import com.hackinroms.movieapp.screens.details.ProfileScreen
+import com.hackinroms.movieapp.screens.details.ActorProfileScreen
 
 // Navigation Component > Nav Controller > Nav Host > Nav Graph
 @Composable
@@ -36,9 +36,12 @@ fun MovieNavigation() { // Nav Component
       DetailScreen(navController = navController, backStackEntry.arguments?.getString("movie"))
     }
 
-    composable(MovieScreens.ProfileScreen.name) {
+    composable(MovieScreens.ActorProfileScreen.name + "/{actor}",
+      arguments = listOf(navArgument(name = "actor") { type = NavType.StringType })
+      ) {
+        backStackEntry ->
       // Where this navigation will go
-      ProfileScreen(navController = navController)
+      ActorProfileScreen(navController = navController, backStackEntry.arguments?.getString("actor"))
     }
   }
 }

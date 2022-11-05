@@ -35,13 +35,6 @@ fun MovieItem(movie: Movie = getMovies()[7], onItemClick: (String) -> Unit = {})
 
   val imagePainter = getImagePainter(url = movie.poster)
 
-    /*rememberAsyncImagePainter(
-    model = ImageRequest.Builder(LocalContext.current)
-      .data(movie.images[0])
-      .crossfade(true)
-      .build(),
-  )*/
-
   var expanded by remember { mutableStateOf(false) }
 
   Card(
@@ -136,7 +129,7 @@ fun MovieItem(movie: Movie = getMovies()[7], onItemClick: (String) -> Unit = {})
               style = MaterialTheme.typography.caption,
               modifier = Modifier.padding(2.dp),
             )
-            Text(text = "Actors: ${movie.actors}",
+            Text(text = "Genre: ${movie.genre}",
               style = MaterialTheme.typography.caption,
               modifier = Modifier.padding(2.dp),
             )
